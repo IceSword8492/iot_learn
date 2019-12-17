@@ -1,12 +1,3 @@
-var1 = 1 + 2 / 3
+import numpy as np
 
-class ClassName:
-    def f (self):
-        print("test")
-
-{
-    "test": {
-        "test1": 1
-    },
-    "test2": [],
-}
+print(np.array([0, 1]))
