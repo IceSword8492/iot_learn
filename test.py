@@ -1,9 +1,13 @@
 import numpy as np
 import pandas as pd
-np.random.seed(0)
-columns = ["apple", "orange", "banana", "strawberry", "kiwifruit"]
-df = pd.DataFrame()
-for column in columns:
-    df[column] = np.random.choice(range(1, 11), 10)
-df.index = range(1, 11)
-print(df.loc[(df["apple"] >= 5) & (df["kiwifruit"] >= 5)])
+def make (i, c, s):
+    np.random.seed(s)
+    df = pd.DataFrame()
+    for co in c:
+        df[co] = np.random.choice(range(1, 101), len(i))
+    df.index = i
+    return df
+columns = ["apple", "orange", "banana"]
+df_data1 = make(range(1, 5), columns, 0)
+df_data2 = make(range(1, 5), columns, 1)
+print(pd.concat([df_data1, df_data2], axis = 1, keys = ['X', 'Y']))
